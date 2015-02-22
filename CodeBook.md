@@ -10,22 +10,32 @@ The data processing runs entirely in the run_analysis.R script. The script assum
 
 and that you've extracted the following files:
 
-X_test.txt
-X_train.txt
-Y_test.txt
-Y_train.txt
-subject_test.txt
-subject_train.txt
-features.txt
-activity_labels.txt
+X_test.txt<br/>
+X_train.txt<br/>
+Y_test.txt<br/>
+Y_train.txt<br/>
+subject_test.txt<br/>
+subject_train.txt<br/>
+features.txt<br/>
+activity_labels.txt<br/>
 
 to the same directory as the run_analysis.R script resides.
+#### run_analysis.R script
+The run_analysis.R script performs the follow operations on the source datasets.
+1. Reads and merges data from the train and test files into three data frames(one for measurements, one for activities, and one for subjects).
+2. Subsets the merged measurement data frame into just the mean and standard deviation measurements from the source.
+3. Replaces the numeric values for the activity factors with descriptive names.
+4. Scrubs the original measurement names to be more readable and descriptive. Gives the subject data frame a column name.
+5. Combines the merged measurements, activities, and subjects into a single data frame. Writes the combined data frame to disk in a file named "UCI_HAR_extracted.txt".
+6. Makes a tidy dataset by splitting the combined data frame by subject and activity, and calculating mean on each of the measurements. Writes the tidy data frame to disk in a file named "UCI_HAR_tidy.txt".
 
 ### Data Dictionary - UCI HAR Tidy Dataset
 #### Rows
-Each of the rows in the tidy dataset represent an average of each measurement for each activity of each subject. You should get 180 rows (30 subjects x 6 activities each).
+Each of the rows in the tidy dataset represent an average of each measurement for each activity of each subject. There are 180 rows (30 subjects x 6 activities each).
 
 #### Column Definitions
+For descriptions of the source columns, please see the features_info.txt that is in the UCI HAR Dataset source.
+
 |COLUMN NAME|COLUMN TYPE|VALUES|
 | ------------------------------ | ------------ | ---------------------------------------- |
 |subject|integer|subject number|
