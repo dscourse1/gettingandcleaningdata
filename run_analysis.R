@@ -45,7 +45,6 @@ combined.data <- cbind(x.merged, y.merged, subject.merged)
 ## save combined dataset to disk
 write.table(combined.data, "UCI_HAR_extracted.txt", row.name=FALSE)
 
-
 ## Step 5
 ## create tidy dataset with average of each variable
 ## for each activity (only columns in x.merged data)
