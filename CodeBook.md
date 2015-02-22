@@ -2,6 +2,7 @@
 ## CodeBook
 ### General Info
 This dataset merges the training and test datasets from the UCI Human Activity Recognition Using Smartphones Data Set. The tidy dataset contains averages of the mean and standard deviation measurements from the UCI HAR dataset. The measurements were taken from the gyroscope and the accelerometer for six different types of activities. There were 30 subjects that were measured for each of the activities. For more information on the UCI HAR dataset, use the link below.
+
 [UCI HAR Dataset Info](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
 ### Processing of Data
 The data processing runs entirely in the run_analysis.R script. The script assumes that you've downloaded the source data from the link below.
@@ -22,11 +23,17 @@ activity_labels.txt<br/>
 to the same directory as the run_analysis.R script resides.
 #### run_analysis.R script
 The run_analysis.R script performs the follow operations on the source datasets.
+
 1. Reads and merges data from the train and test files into three data frames(one for measurements, one for activities, and one for subjects).
+
 2. Subsets the merged measurement data frame into just the mean and standard deviation measurements from the source.
+
 3. Replaces the numeric values for the activity factors with descriptive names.
+
 4. Scrubs the original measurement names to be more readable and descriptive. Gives the subject data frame a column name.
+
 5. Combines the merged measurements, activities, and subjects into a single data frame. Writes the combined data frame to disk in a file named "UCI_HAR_extracted.txt".
+
 6. Makes a tidy dataset by splitting the combined data frame by subject and activity, and calculating mean on each of the measurements. Writes the tidy data frame to disk in a file named "UCI_HAR_tidy.txt".
 
 ### Data Dictionary - UCI HAR Tidy Dataset
